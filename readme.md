@@ -2,6 +2,8 @@
 
 Dependencies:
 * npm install browserify
+* Copy the files in this repo under node_modules/vectorwatch-browser/
+* Move sample.js, sample-bunde.js and sample.html in the root of your project
 
 Usage:
 * browserify sample.js -o sample-bundle.js
