@@ -1,11 +1,12 @@
 #Module that lets the Vector Apps and streams run in the browser.
 
-Dependencies:
+Installation:
 * npm install -g browserify
-* Copy the files in this repo under node_modules/vectorwatch-browser/
-* Move sample.js, sample-bunde.js and sample.html in the root of your project
+* npm install vectorwatch-sdk (or clone it form https://github.com/VectorWatch/vectorwatch-sdk)
+* Move all files except for sample.js, sample-bunde.js and sample.html under node_modules/vectorwatch-browser/
+
 
 Usage:
 * browserify sample.js -o sample-bundle.js
 * Open sample.html in your browser
-* Open the console, click the tow buttons
+* Open the console, click the two buttons
