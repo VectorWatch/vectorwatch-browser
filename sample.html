@@ -1,6 +1,13 @@
 <script src="sample-bundle.js"></script>
 <script>
 
+window.process = {
+  env: {
+    STREAM_UID: "ENTER_STREAM_ID",
+    VECTOR_TOKEN: "ENTER_VECTOR_TOKEN"
+  }
+};
+
 function testConfigure() {
   var req = {
     headers: {},
