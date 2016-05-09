@@ -7,7 +7,7 @@ var app = express();
  * @constructor
  */
 function VectorWatchBrowser(arguments) {
-	VectorWatchSDK.apply(this, arguments);
+	VectorWatchSDK.call(this, arguments);
 
 	app.use('/api/callback', this.getMiddleware());
 }
