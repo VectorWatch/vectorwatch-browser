@@ -11,7 +11,11 @@ var app = express();
 
  	if (process.env.IS_BROWSER == true) {
  		this.logger = require('./libs/browser-logger.js');
- 		this.createServer = function() {};
+ 		this.createServer = function(scheduleJob) {
+ 			if (scheduleJob) {
+ 				scheduleJob();
+ 			}
+ 		};
  	}
 
  	app.use('/api/callback', this.getMiddleware());
