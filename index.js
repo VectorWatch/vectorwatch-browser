@@ -6,11 +6,13 @@ var app = express();
 /**
  * @constructor
  */
-function VectorWatchBrowser(arguments) {
-	VectorWatchSDK.call(this, arguments);
+ function VectorWatchBrowser(arguments) {
+ 	VectorWatchSDK.call(this, arguments);
 
-	app.use('/api/callback', this.getMiddleware());
-}
-util.inherits(VectorWatchBrowser, VectorWatchSDK);
+ 	this.logger = require('./libs/browser-logger.js');
 
-module.exports = VectorWatchBrowser;
+ 	app.use('/api/callback', this.getMiddleware());
+ }
+ util.inherits(VectorWatchBrowser, VectorWatchSDK);
+
+ module.exports = VectorWatchBrowser;
