@@ -9,7 +9,10 @@ var app = express();
  function VectorWatchBrowser(arguments) {
  	VectorWatchSDK.call(this, arguments);
 
- 	this.logger = require('./libs/browser-logger.js');
+ 	if (process.env.IS_BROWSER == true) {
+ 		this.logger = require('./libs/browser-logger.js');
+ 		this.createServer = function() {};
+ 	}
 
  	app.use('/api/callback', this.getMiddleware());
  }
