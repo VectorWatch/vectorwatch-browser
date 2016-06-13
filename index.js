@@ -16,6 +16,17 @@ var app = express();
  				scheduleJob();
  			}
  		};
+
+ 		this.pushStreamValue = function(channelLabel, value, delay) {
+ 			if (channelLabel == "emulatorUniqueLabel") {
+ 				if (window.onEmulatorPushData) {
+ 					window.onEmulatorPushData(value);
+ 				}
+ 			}
+ 			else {
+ 				VectorWatchSDK.prototype.pushStreamValue.call(this, channelLabel, value, delay);
+ 			}
+ 		};
  	}
 
  	app.use('/api/callback', this.getMiddleware());
