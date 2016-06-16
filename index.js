@@ -19,7 +19,7 @@ var app = express();
 
  		this.pushStreamValue = function(channelLabel, value, delay) {
  			if (channelLabel == "emulatorUniqueLabel") {
- 				if (window.onEmulatorPushData) {
+ 				if (typeof window !== 'undefined' && window.onEmulatorPushData) {
  					window.onEmulatorPushData(value);
  				}
  			}

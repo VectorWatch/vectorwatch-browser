@@ -21,10 +21,12 @@ App.listen = function(port, callback) {
 
 exports = module.exports = createApp;
 
-window.call = function(type, url, request) {
-  App.map[type + '/' + url](request, res, function(){});
-}
+if (typeof window !== 'undefined') {
+	window.call = function(type, url, request) {
+		App.map[type + '/' + url](request, res, function(){});
+	}
 
-window.respond = function(content) {
-  console.log('Response code: ' + JSON.stringify(content));
+	window.respond = function(content) {
+		console.log('Response code: ' + JSON.stringify(content));
+	}
 }
