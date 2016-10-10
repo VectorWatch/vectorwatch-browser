@@ -1,33 +1,33 @@
 'use strict'
 
-var winstonLogger = {};
+var browserLogger = {};
 
-winstonLogger.error = function(msgStr, msgObj) {
-	console.log({'error': {
-		'msg': msgStr,
-		'obj': msgObj
-	}});
+browserLogger.error = function(msgStr, msgObj) {
+	console.log('%c' + msgStr, 'color: red');
+	if (msgObj) {
+		console.log('%c' + msgObj, 'color: red');
+	}
 }
 
-winstonLogger.warn = function(msgStr, msgObj) {
-	console.log({'warning': {
-		'msg': msgStr,
-		'obj': msgObj
-	}});
+browserLogger.warn = function(msgStr, msgObj) {
+	console.log('%c' + msgStr, 'color: yellow');
+	if (msgObj) {
+		console.log('%c' + msgObj, 'color: yellow');
+	}
 }
 
-winstonLogger.info = function(level, msg) {
-	console.log({'info': {
-		'level': level,
-		'msg': msg
-	}});
+browserLogger.info = function(msgStr, msgObj) {
+	console.log('%c' + msgStr, 'color: blue');
+	if (msgObj) {
+		console.log('%c' + msgObj, 'color: blue');
+	}
 }
 
-winstonLogger.log = function(level, msg) {
-	console.log({'log': {
-		'level': level,
-		'msg': msg
-	}});
+browserLogger.log = function(msgStr, msgObj) {
+	console.log(msgStr);
+	if (msgObj) {
+		console.log(msgObj);
+	}
 }
 
-exports = module.exports = winstonLogger;
+exports = module.exports = browserLogger;
