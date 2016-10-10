@@ -5,21 +5,21 @@ var browserLogger = {};
 browserLogger.error = function(msgStr, msgObj) {
 	console.log('%c' + msgStr, 'color: red');
 	if (msgObj) {
-		console.log('%c' + msgObj, 'color: red');
+		console.log(msgObj);
 	}
 }
 
 browserLogger.warn = function(msgStr, msgObj) {
-	console.log('%c' + msgStr, 'color: yellow');
+	console.log('%c' + msgStr, 'color: #FFCC00');
 	if (msgObj) {
-		console.log('%c' + msgObj, 'color: yellow');
+		console.log(msgObj);
 	}
 }
 
 browserLogger.info = function(msgStr, msgObj) {
 	console.log('%c' + msgStr, 'color: blue');
 	if (msgObj) {
-		console.log('%c' + msgObj, 'color: blue');
+		console.log(msgObj);
 	}
 }
 
