@@ -27,6 +27,17 @@ var app = express();
  				VectorWatchSDK.prototype.pushStreamValue.call(this, channelLabel, value, delay);
  			}
  		};
+
+ 		this.pushNotification = function(channelLabel, value, delay) {
+ 			if (channelLabel == "emulatorUniqueLabel") {
+ 				if (typeof window !== 'undefined' && window.onEmulatorPushNotification) {
+ 					window.onEmulatorPushNotification(value);
+ 				}
+ 			}
+ 			else {
+ 				VectorWatchSDK.prototype.pushNotification.call(this, channelLabel, value, delay);
+ 			}
+ 		};
  	}
 
  	app.use('/api/callback', this.getMiddleware());
