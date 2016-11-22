@@ -1,6 +1,6 @@
 var util = require('util');
 var express = require('./libs/express-websocket');
-var VectorWatchSDK = require('vectorwatch-sdk');
+var VectorWatchSDK = require('./node_modules/vectorwatch-sdk');
 var app = express();
 
 /**
