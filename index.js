@@ -1,4 +1,5 @@
 var util = require('util');
+var http = require('http');
 var express = require('./libs/express-websocket');
 var VectorWatchSDK = require('./node_modules/vectorwatch-sdk');
 var app = express();
@@ -7,13 +8,20 @@ var app = express();
  * @constructor
  */
  function VectorWatchBrowser(arguments) {
+
+ 	if (process.env.IS_BROWSER == true) {
+ 		http.createServer = function(cb) {
+ 			return {listen: function() {}};
+ 		};
+ 	}
+
  	VectorWatchSDK.call(this, arguments);
 
  	if (process.env.IS_BROWSER == true) {
  		this.logger = require('./libs/browser-logger.js');
- 		this.createServer = function(scheduleJob) {
- 			if (scheduleJob) {
- 				scheduleJob();
+ 		this.createServer = function(cb) {
+ 			if (cb) {
+ 				cb();
  			}
  		};
 
