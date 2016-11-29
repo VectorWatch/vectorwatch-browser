@@ -52,4 +52,8 @@ var app = express();
  }
  util.inherits(VectorWatchBrowser, VectorWatchSDK);
 
+ global.vwb_getSchedule = function() {
+ 	return VectorWatchSDK.getSchedule();
+ }
+
  module.exports = VectorWatchBrowser;
